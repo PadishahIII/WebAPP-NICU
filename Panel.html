@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="css/Wyrd.css" type="text/css" rel="stylesheet">
+        <script>
+            window.onload=function(){
+                let username = getCookieValue('username')
+                if(username=='')
+                {
+                    let atag = document.createElement('a')
+                    let href  = "./Login.html"
+                    atag.href = href
+                    atag.click()
+                }
+                //申请表信息
+                getTables()
+                console.log(TableNames)
+                //var t = new TeacherInfoPage()
+
+            //generateTable1D(TableNames.length,TableNames,0)
+                
+
+                console.log("columnInfo:")
+                console.log(ColumnInfo)
+                getTableData("faculty")
+                var faculty_data = TableData.get("faculty")
+                console.log(faculty_data)
+                for(var col in faculty_data){
+                    console.log(faculty_data[col])
+                }
+                //insert
+                //var data_map = new Map()
+                //data_map.set("id","5")
+                //data_map.set("name","dd")
+                //data_map.set("funding","200")
+                //insertIntoTable("faculty",data_map)
+
+                //delete
+                //var data_map = new Map()
+                //data_map.set("id","5")
+                //data_map.set("name","dd")
+                //data_map.set("funding","200")
+                //deleteFromTable("faculty",data_map)
+
+                //update
+                //var old_data_map = new Map()
+                //old_data_map.set("id",3)
+                //var new_data_map= new Map()
+                //new_data_map.set("name","htmlnewname")
+                //updateFromTable("faculty",old_data_map,new_data_map)
+                
+            }
+        </script>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>学生信息管理</title>
+        <style type="text/css">
+            #page{
+                width:960px;
+                margin:0 auto;
+            }
+            #top{
+                width: 960px;
+                height: 150px;
+                background-color: rgba(rgb(186, 156, 156), rgb(157, 186, 157), rgb(186, 186, 204), 0.3);
+            }
+            #main{
+                height: 5000px;
+                background-color: rgba(red, green, blue, 0.3);
+            }
+            #left,#mid,#right{
+                height: max-content;
+                float:left;
+                background-color: rgba(red, green, blue, 0.3);
+
+            }
+            #left{
+                width: 200px;
+                /*background-color: aquamarine;*/
+            }
+            #mid{
+                width: 560px;
+                background-color: rgb(246, 242, 247);
+                opacity: 0.78;
+            }
+            #right{
+                width: 200px;
+                /*background-color: blanchedalmond;*/
+            }
+            button{
+                color: aliceblue;
+                background-color: darkslateblue;
+                border-radius: 4px;
+                border: wheat;
+                padding: 6px 20px;
+                cursor: pointer;
+                margin-right: 12px;
+                font-family: inherit;
+                outline: auto;
+                user-select: all;
+                width: fit-content;
+            }
+            .bigbtn{
+                color: aliceblue;
+                background-color: darkslateblue;
+                border-radius: 4px;
+                border: wheat;
+                padding: 6px 20px;
+                cursor: pointer;
+                margin-right: 12px;
+                font-family: inherit;
+                outline: auto;
+                user-select: all;
+                width: 200px;
+            }
+            video{
+                position: fixed;
+                right:0;
+                bottom:0;
+                min-width: 100%;
+                min-height: 100%;
+                width:auto;
+                height:auto;
+                z-index: -9999;
+                /*-webkit-filter:grayscale(100%);*/
+            }
+        </style>
+        <video
+            id="v1"
+            autoplay
+            muted
+            loop
+            style="width:100%"
+        >
+            <source src="video/nycwpeloop4k.mp4">
+        </video>
+    </head>
+    <body class="is-frameless mod-windows css-settings-manager plugin-sliding-panes plugin-sliding-panes-stacking lig Top check-color check-bg slrvb-g s-d drwn nord red-velvet bl-xmas hd-img color-scheme-options-autumn-topaz background-settings-workplace-style-none background-settings-workplace-theme-light-none background-settings-workplace-theme-dark-hyacinth-macaw background-image-settings-markdown-page-woof-meow background-image-settings-markdown-page-random background-image-settings-markdown-page-random-blue bt-status-off circular-checkbox fancy-hr list-bracket-left-two light-background-color-files folder-style-change-options-colorful folder-colorful-one blockquote-style-speech-bubble-one export-pdf-style-default naked-embed embed-hd style-options-for-calendar-plugin-style-two style-options-for-admonition-plugin style-options-for-kanban-plugin-static-default style-options-for-kanban-plugin-dynamic-default rainbow-checklist theme-dark">
+        <div id="page" class="markdown-preview-view">
+            <div id="top">
+                <h1>教学信息管理系统</h1>
+            </div>
+            <div id="main" class="markdown-preview-view markdown-rendered node-insert-event allow-fold-headings show-indentation-guide allow-fold-lists show-frontmatter">
+                <div id="left" class="markdown-preview-pusher">
+                    <button class="bigbtn" onclick="javascript:var teacher = new TeacherInfoPage('teacher');teacher.display();">教师信息</button>
+                    <button class="bigbtn" onclick="javascript:var faculty = new FacultyInfoPage('faculty');faculty.display();">院系信息</button>
+                    <button class="bigbtn" onclick="javascript:var laboratory = new LabInfoPage('laboratory');laboratory.display();">实验室信息</button>
+                    <button class="bigbtn" onclick="javascript:var student = new StudentInfoPage('student');student.display();">学生信息</button>
+                    <button class="bigbtn" onclick="javascript:var project = new ProjectInfoPage('project');project.display();">科研项目</button>
+                    <button class="bigbtn" onclick="javascipt:var course = new CourseInfoPage('course');course.display();">课程信息</button>
+                    <button class="bigbtn" onclick="javascipt:var direction = new DirectionInfoPage('direction');direction.display();">研究方向</button>
+                    <button class="bigbtn" onclick="javascipt:var teach_relation = new TeachInfoPage('teach_relation');teach_relation.display();">授课信息</button>
+                    <button class="bigbtn" onclick="javascipt:var study_relation = new StudyInfoPage('study_relation');study_relation.display();">选课信息</button>
+                </div>
+                <div id="mid">
+                    <!--<table>
+                    <tr>
+                        <th>aaa</th>
+                        <th>bbb</th>
+                        <th>ccc</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>AAAA</td>
+                            <td>BBBB</td>
+                            <td>CCCC</td>
+                        </tr>
+                    </tbody>
+                </table>
+                --></div>
+                <div id="right"></div>
+            </div>
+        </div>
+        <script src="js/jquery_1.11.1.min.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/retina-1.1.0.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jsencrypt.js"></script>
+        <script src="js/crypto-js.js"></script>
+        <script src="js/md5.js"></script>
+        <script src="js/jsencrypt.min.js"></script>
+        <script src="js/mycrypto.js"></script>
+        <script src="js/cookie.js"></script>
+        <script src="js/DBQuery.js"></script>
+        <script src="js/DBStudentInfoPage.js"></script>
+        <script src="js/DBCourseInfoPage.js"></script>
+        <script src="js/DBLabInfoPage.js"></script>
+        <script src="js/DBFacultyInfoPage.js"></script>
+        <script src="js/DBProject.js"></script>
+        <script src="js/DBDirectionInfoPage.js"></script>
+        <script src="js/DBTeach.js"></script>
+        <script src="js/DBStudy.js"></script>
+        <script type="text/javascript">
+            generateTable1D(TableNames.length,TableNames,0)
+            //table = document.createElement("table")
+            //tBody = document.createElement("tBody")
+        </script>
+    </body>
+</html>

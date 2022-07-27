@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head id="head">
+        <!--<script type="text/javascript">
+             var video = document.createElement('video')
+                video.id="v1"
+                video.autoplay=true
+                video.muted=true
+                video.loop=true
+                video.style="width:100%"
+                video.src="video/nycwpeloop4k.mp4"
+                var head = document.getElementById('head')
+                head.appendChild(video)
+        </script>-->
+        <link href="css/Wyrd.css" type="text/css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>学生信息管理</title>
+        <style type="text/css">
+            #page{
+                width:960px;
+                margin:0 auto;
+            }
+            #top{
+                width: 960px;
+                height: 150px;
+                background-color: rgba(rgb(186, 156, 156), rgb(157, 186, 157), rgb(186, 186, 204), 0.3);
+            }
+            #main{
+                height: 5000px;
+                background-color: rgba(red, green, blue, 0.3);
+            }
+            #left,#mid,#right{
+                height: max-content;
+                float:left;
+                background-color: rgba(red, green, blue, 0.3);
+
+            }
+            #left{
+                width: 200px;
+                /*background-color: aquamarine;*/
+            }
+            #mid{
+                width: 560px;
+                background-color: rgb(246, 242, 247);
+                opacity: 0.78;
+            }
+            #right{
+                width: 200px;
+                /*background-color: blanchedalmond;*/
+            }
+            button{
+                color: aliceblue;
+                background-color: darkslateblue;
+                border-radius: 4px;
+                border: wheat;
+                padding: 6px 20px;
+                cursor: pointer;
+                margin-right: 12px;
+                font-family: inherit;
+                outline: auto;
+                user-select: all;
+                width: fit-content;
+            }
+            .bigbtn{
+                color: aliceblue;
+                background-color: darkslateblue;
+                border-radius: 4px;
+                border: wheat;
+                padding: 6px 20px;
+                cursor: pointer;
+                margin-right: 12px;
+                font-family: inherit;
+                outline: auto;
+                user-select: all;
+                width: 200px;
+            }
+            video{
+                position: fixed;
+                right:0;
+                bottom:0;
+                min-width: 100%;
+                min-height: 100%;
+                width:auto;
+                height:auto;
+                z-index: -9999;
+                /*-webkit-filter:grayscale(100%);*/
+            }
+        </style>
+        <style type="text/css"></style>
+        <video
+            id="v1"
+            autoplay
+            muted
+            loop
+            style="width:100%"
+        >
+            <source src="video/nycwpeloop4k.mp4">
+        </video>
+    </head>
+    <body class="is-frameless mod-windows css-settings-manager plugin-sliding-panes plugin-sliding-panes-stacking lig Top check-color check-bg slrvb-g s-d drwn nord red-velvet bl-xmas hd-img color-scheme-options-autumn-topaz background-settings-workplace-style-none background-settings-workplace-theme-light-none background-settings-workplace-theme-dark-hyacinth-macaw background-image-settings-markdown-page-woof-meow background-image-settings-markdown-page-random background-image-settings-markdown-page-random-blue bt-status-off circular-checkbox fancy-hr list-bracket-left-two light-background-color-files folder-style-change-options-colorful folder-colorful-one blockquote-style-speech-bubble-one export-pdf-style-default naked-embed embed-hd style-options-for-calendar-plugin-style-two style-options-for-admonition-plugin style-options-for-kanban-plugin-static-default style-options-for-kanban-plugin-dynamic-default rainbow-checklist theme-dark">
+        <div id="page" class="markdown-preview-view">
+            <div id="top">
+                <h2>
+                    管理员登录
+                </h2>
+            </div>
+            <div id="main" class="markdown-preview-view markdown-rendered node-insert-event allow-fold-headings show-indentation-guide allow-fold-lists show-frontmatter">
+                <div id="mid">
+                    <div id="main" class="markdown-preview-view markdown-rendered node-insert-event allow-fold-headings show-indentation-guide allow-fold-lists show-frontmatter">
+                        username:
+                        <input type="text" id="username">
+                        passwd:
+                        <input type="password" id="password">
+                        <input type="submit" value="submit" onclick="Login()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/retina-1.1.0.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/jsencrypt.js"></script>
+        <script src="js/crypto-js.js"></script>
+        <script src="js/md5.js"></script>
+        <script src="js/jsencrypt.min.js"></script>
+        <script src="js/mycrypto.js"></script>
+        <script src="js/cookie.js"></script>
+        <script type="text/javascript">
+            function Login(){
+            var key_str = getAesKey(32);
+            var key = encryptByRSA(key_str,0);
+            var iv = getAesKey(16);
+            var ivstr = encryptByRSA(iv,0);
+
+            var username = document.getElementById("username").value
+            var password = document.getElementById("password").value
+            var payload = {
+                username:username,
+                password:password
+            }
+            var payload_json = JSON.stringify(payload)
+            var payload_json_enc = encryptByAES(payload_json,key_str,iv)
+            
+            //key = "us er"
+
+            var mac = String(CryptoJS.SHA512(key+ivstr+payload_json_enc))
+            console.log("keystr:"+key_str)
+            console.log("iv:"+iv)
+            console.log("payload_json:"+payload_json)
+            console.log("payload_json_enc:"+payload_json_enc)
+            console.log("key:"+key)
+            console.log(key.length)
+            console.log("ivstr:"+ivstr)
+            console.log("payload_json_enc:"+payload_json_enc)
+
+            key_raw = "QzWvBsTj3RA6b1CkrBZQyBDmAWW0man1XB5KBn0ILB3MVHf1k6Yk3oCC2VrEQIh0Ze3ZpX3N3JoAEvf9YPVdEb9zIgnAbnpZVc5P1m28T4oRCFWJeYavuKl%2BYnvPa0iCOY2wXHjhWTSctMaD5Cf4UOToDSbQQxotqp%2FJ30bmSdA%3D";
+            iv_raw = "L5cqQkNHzkHJ3qBWpRawfZ3PLd6rPP%2Fw7YcIwqtu1f1NfxcHTZ473spyXocoFgjGGskXB6%2F91voxSPEpvc0hRdWdWRH4XsIRPZ89o797TBZK1I7DySWqOa41CL8JcURWFWNxoHJWbwpCicYJEB0N66HfbxHaQcFJyS%2BdgosgJA0%3D";
+            payload_raw = "Bh0pweFzY3d2POR6OSsM5%2B9tLl74sPcNErlYBP1VrqUe6LlY6mLkwVQj%2BiiGfYn8";
+            mac_trans = "dbfc8ee27026924b049c5d7b5f0a4baded357216559cbd9bc8d934a5da073bab79373d5d82a99651ae36a63eca9d73583fd31da280755a7c0d768a0c4c82ee25";
+            var mac_temp = String(CryptoJS.SHA512(key_raw+iv_raw+payload_raw))
+            console.log("mac_cal:"+mac_temp)
+            console.log(mac_temp.length)
+            if(mac_temp==mac_trans)console.log("equal")
+            else console.log("not equal")
+            
+            var string = "powershell"
+            var string_enc = encryptByRSA(string,0)
+            console.log(string_enc)
+            console.log(string_enc.length)
+
+
+            xmlhttp = new XMLHttpRequest()
+            xmlhttp.open("POST","/DBManager/login",false)
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xmlhttp.send("key="+encodeURIComponent(key)+"&iv="+encodeURIComponent(ivstr)+"&payload="+encodeURIComponent(payload_json_enc)+"&mac="+encodeURIComponent(mac))
+
+            var data = xmlhttp.responseText;
+            if(data[0]!='{'){
+                alert(data);
+                return false;
+            }
+            else 
+            {
+                var data_arr = JSON.parse(data);
+                var response_payload_json_enc = data_arr['payload']
+                var response_mac_trans = data_arr['mac']
+                var response_mac_cal = CryptoJS.SHA512((response_payload_json_enc))
+                console.log("payload:"+response_payload_json_enc)
+                console.log("mac_cal:"+response_mac_cal)
+                console.log("mac_trans:"+response_mac_trans)
+                if(response_mac_cal!=response_mac_trans){
+                    alert("mac error!");
+                    return false
+                }
+                var response_payload_json = decryptByAES((response_payload_json_enc),key_str,iv)
+                console.log(response_payload_json)
+                var response_payload = JSON.parse(response_payload_json)
+                var data = response_payload['data']
+                //alert(data)
+                //跳转
+                addCookie("username",username,'','/')
+                let atag = document.createElement('a')
+                let href  = "./Panel.html"
+                atag.href = href
+                atag.click()
+                return true;
+            }
+        }
+        </script>
+    </body>
+</html>

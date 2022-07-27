@@ -1,0 +1,5 @@
+本数据库管理系统运行在 tomcat 服务器中，如代码目录为 DBManager，则对应的 url 为http://localhost:8080/DBManager/Login.html
+需要的数据库： 
+    1. education 
+    2. education_admins
+管理员登录：用户名为 admin，密码为 123456
