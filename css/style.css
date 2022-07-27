@@ -9117,3 +9117,8 @@ width:100%;
   text-shadow: 2px 2px #f4a3c8;
   font-size:33px;
 }
+.tm-section {
+  max-width: 100%;
+  width: auto;
+  background: transparent;    
+}
