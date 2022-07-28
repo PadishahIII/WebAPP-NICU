@@ -9107,11 +9107,9 @@ width:100%;
 /*  */
 .my-header {
   padding: 0.7rem 2rem;
-  margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125); 
   text-align: left;
-  text-indent: 40px;/*缩进*/
   color:white;
   font-family: "Microsoft JhengHei";
   opacity: 1.6;
@@ -9125,25 +9123,95 @@ width:100%;
   border-radius: 10px;
   /*border-bottom:  1px solid rgba(0, 0, 0, 0.125); */
   text-align: center;
-  text-indent: 40px;/*缩进*/
   color:white;
   font-family: "Hiragino Sans GB";
   opacity: 1.6;
   text-shadow: 2px 2px #f4a3c8;
   font-size:33px;
 }
+.my-header3 {
+  padding: 0.7rem 2rem;
+  margin-bottom: 0;
+  border:thick double  #29bae4;
+  border-radius: 10px;
+  /*border-bottom:  1px solid rgba(0, 0, 0, 0.125); */
+  text-align: center;
+  color:white;
+  font-family: "Hiragino Sans GB";
+  opacity: 1.6;
+  text-shadow: 2px 2px #f4a3c8;
+  font-size:33px;
+}
+.my-header4 {
+  padding: 0.7rem 2rem;
+  margin-bottom: 0;
+  border:1rem solid  #e4606d;
+  border-radius: 10px;
+  /*border-bottom:  1px solid rgba(0, 0, 0, 0.125); */
+  text-align: center;
+  color:white;
+  font-family: "Hiragino Sans GB";
+  opacity: 1.6;
+  text-shadow: 2px 2px #f4a3c8;
+  font-size:22px;
+  /*margin-top:-1rem;*/
+}
+
 .my-h2{
   color:#999;
+}
+
+.my-div {
+  position: relative;
+  /*margin: 2em 0 0;*/
+  background-color: transparent;
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Firefox bug - 3D CSS transform, jagged edges */
+  outline: 1px solid transparent;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width:40%;
+  height:80px;
+}
+.my-p {
+  position: relative;
+  font-family: "Microsoft JhengHei";
+  color:#fff;
+  font-weight: bolder;
+  font-size: 25px;
+  text-align: center;
+  -ms-flex-align: center;
+}
+.bg-purple{
+  background-color: var(--purple);
+  border-radius: 100px;
+  height:60px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.bg-red{
+  background-color: var(--red);
+  border-radius: 100px;
+  height:60px;
+  margin-bottom: 20px;
 }
 .my-warn{
   color:#999;
   font-size: 1.5rem;
   font-weight: 300;
 }
+.image{
+  width:574px;
+  height: 354px;
+}
 .tm-section {
   max-width: 100%;
   width: 1200px;
   background: transparent;    
+  /*padding-top:-1rem;*/
 }
 a.active{
   border-color: #33ccff;

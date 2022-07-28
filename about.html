@@ -37,15 +37,16 @@
                     智护宝——基于深度学习的NICU陪护系统
                 </p>
             </div>
-            <div id="particles-js"></div>
+            <!--<div id="particles-js"></div>-->
             <div class="container">
-                <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="row no-gutters slider-text justify-content-center" data-scrollax-parent="true">
+                    <!-- 去掉了align-items-center，否则和标题之间有空白 -->
                     <!-- sidebar -->
                     <div class="wrapper d-flex align-items-stretch">
                         <nav id="sidebar" class="tm-main-nav" style="background:transparent;">
-                            <div class="custom-menu">
+                            <!--<div class="custom-menu">
                                 <button type="button" id="sidebarCollapse" class="btn btn-primary"></button>
-                            </div>
+                            </div>-->
                             <div class="img bg-wrap text-center py-4" style="background:transparent;">
                                 <div class="user-logo">
                                     <div class="img" style="background-image: url(images/logo.jpg);"></div>
@@ -78,12 +79,12 @@
                                 <li>
                                     <a
                                         href="#"
-                                        id="tmNavLink2"
+                                        id="tmNavLink3"
                                         class=""
-                                        data-page="#tm-section-2"
+                                        data-page="#tm-section-3"
                                     >
                                         <span class="fa fa-download mr-3 notif"></span>
-                                        婴儿体征监测
+                                        婴儿情绪识别
                                     </a>
                                 </li>
                                 <li>
@@ -94,7 +95,7 @@
                                         data-page="#tm-section-2"
                                     >
                                         <span class="fa fa-download mr-3 notif"></span>
-                                        婴儿体征监测
+                                        Sign Out
                                     </a>
                                 </li>
                             </ul>
@@ -191,7 +192,7 @@
                             </div>
                         </section>
                         <section id="tm-section-2" class="p-4 p-md-5 pt-5 tm-section">
-                            <h2 class="my-header2">婴儿体征监测</h2>
+                            <h2 class="my-header3">婴儿体征监测</h2>
                             <div class="cd-pricing-container">
                                 <!-- .cd-pricing-switcher -->
                                 <ul class="cd-pricing-list cd-bounce-invert">
@@ -253,6 +254,59 @@
                                 <!-- .cd-pricing-container -->
                             </div>
                         </section>
+                        <section id="tm-section-3" class="tm-section">
+                            <h5 class="my-header4">
+                                婴儿情绪识别
+                            </h5>
+                            <div class="cd-pricing-container">
+                                <!-- .cd-pricing-switcher -->
+                                <ul class="cd-pricing-list cd-bounce-invert">
+                                    <li style="width:auto;">
+                                        <ul class="cd-pricing-wrapper">
+                                            <li data-type="monthly" class="is-visible">
+                                                <header class="cd-pricing-header">
+                                                    <h2 class="my-h2"></h2>
+                                                    <img src="images/baby.png" class="image">
+                                                </header>
+                                            </li>
+                                        </ul>
+                                        <!-- .cd-pricing-wrapper -->
+                                    </li>
+                                    <li style="width:44%;">
+                                        <ul class="cd-pricing-wrapper">
+                                            <!-- 修改 cd-pricing-wrapper -->
+                                            <li data-type="monthly" class="is-visible" style="margin-bottom:5px;">
+                                                <header class="cd-pricing-header">
+                                                    <h2 class="my-h2">表情识别</h2>
+                                                    <!--<div class="price-icon">
+                                                        <i class="fa fa-smile-o"></i>
+                                                    </div>-->
+                                                    <div class="cd-price bg-purple">
+                                                        <span class="my-p">Positive : 0.88</span>
+                                                    </div>
+                                                    <div class="cd-price bg-red">
+                                                        <span class="my-p">
+                                                            Negative : 0.12
+                                                        </span>
+                                                    </div>
+                                                </header>
+                                            </li>
+                                            <li data-type="monthly" class="is-visible">
+                                                <header class="cd-pricing-header">
+                                                    <h2 class="my-h2">啼哭声识别</h2>
+                                                    <div class="cd-price">
+                                                        <span class="my-warn">未检测到啼哭</span>
+                                                    </div>
+                                                </header>
+                                            </li>
+                                        </ul>
+                                        <!-- .cd-pricing-wrapper -->
+                                    </li>
+                                </ul>
+                                <!-- .cd-pricing-list -->
+                                <!-- .cd-pricing-container -->
+                            </div>
+                        </section>
                         <!--<section id="section-3" class="p-4 p-md-5 pt-5">
                             <h2 class="mb-4">Sidebar #09</h2>
                         </section>-->
@@ -270,7 +324,7 @@
             </div>
         </div>
         <!-- loader -->
-        <!--<div id="ftco-loader" class="show fullscreen">
+        <div id="ftco-loader" class="show fullscreen">
             <svg class="circular" width="48px" height="48px">
                 <circle
                     class="path-bg"
@@ -292,7 +346,7 @@
                     stroke="#F96D00"
                 />
             </svg>
-        </div>-->
+        </div>
         <script>
             // Setup Nav
             function setupNav() {
