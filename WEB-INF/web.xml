@@ -43,6 +43,19 @@
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
+  	<servlet-name>register</servlet-name>
+  	<servlet-class>register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>register</servlet-name>
+  	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>register</servlet-name>
+  	<url-pattern>/NICU/register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>DBResponse</servlet-name>
   	<servlet-class>DBResponse</servlet-class>
   </servlet>

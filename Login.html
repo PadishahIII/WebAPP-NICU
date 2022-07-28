@@ -70,8 +70,8 @@
                             <form action="#" method="post">
                                 <div class="wthree-field">
                                     <input
-                                        name="text1"
-                                        id="text1"
+                                        name="username"
+                                        id="username"
                                         type="text"
                                         value=""
                                         placeholder="Username"
@@ -81,13 +81,13 @@
                                 <div class="wthree-field">
                                     <input
                                         name="password"
-                                        id="myInput"
+                                        id="password"
                                         type="Password"
                                         placeholder="Password"
                                     >
                                 </div>
                                 <div class="wthree-field">
-                                    <button type="submit" class="btn">Sign In</button>
+                                    <button type="button" class="btn" onclick="javascript:signIn();">Sign In</button>
                                 </div>
                                 <div class="login-bottom">
                                     <a href="register.html" class="">Create An Account</a>
@@ -138,8 +138,42 @@
         <script src="js/particles.min.js"></script>
         <script src="js/particle.js"></script>
         <script src="js/scrollax.min.js"></script>
+        <script src="js/cookie.js"></script>
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
         <!--<script src="js/google-map.js"></script>-->
         <script src="js/main.js"></script>
+        <script>
+            function signIn(){
+                var username = $('#username').value;
+                var password=$('#password').value;
+                var payload={
+                    username:username,
+                    password:password
+                }
+                var payload_json=JSON.stringify(payload);
+
+                xmlhttp = new XMLHttpRequest()
+                xmlhttp.open("POST","/login",false)
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                xmlhttp.send("payload="+encodeURIComponent(payload_json))
+
+                var data = xmlhttp.responseText;
+                console.log("data:");
+                console.log(data);
+                if(data.indexOf("Failed")>=0){
+                    alert(data);
+                    return false;
+                }
+                else{
+                    addCookie("username",username,'',"/");
+                    let atag = document.createElement('a')
+                    let href  = "./main.html"
+                    atag.href = href
+                    atag.click()
+                    return true;
+                }
+
+            }
+        </script>
     </body>
 </html>

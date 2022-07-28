@@ -70,8 +70,8 @@
                             <form action="#" method="post">
                                 <div class="wthree-field">
                                     <input
-                                        name="text1"
-                                        id="text1"
+                                        name="username"
+                                        id="username"
                                         type="text"
                                         value=""
                                         placeholder="Username"
@@ -81,32 +81,33 @@
                                 <div class="wthree-field">
                                     <input
                                         name="password"
-                                        id="myInput"
+                                        id="password"
                                         type="Password"
                                         placeholder="Password"
+                                        required
                                     >
                                 </div>
                                 <div class="wthree-field">
                                     <input
                                         name="phonenumber"
-                                        id="myInput"
-                                        type="number"
+                                        id="phonenumber"
+                                        type="text"
                                         placeholder="Phonenumber"
                                     >
                                 </div>
                                 <div class="wthree-field">
                                     <input
                                         name="validate"
-                                        id="myInput"
-                                        type="number"
+                                        id="validation"
+                                        type="text"
                                         placeholder="验证码"
                                     >
                                 </div>
                                 <div class="wthree-field">
-                                    <button type="submit" class="btn">获取验证码</button>
+                                    <button type="button" class="btn">获取验证码</button>
                                 </div>
                                 <div class="wthree-field">
-                                    <button type="submit" class="btn">Register</button>
+                                    <button type="button" onclick="javascript:register();" class="btn">Register</button>
                                 </div>
                             </form>
                         </div>
@@ -154,8 +155,40 @@
         <script src="js/particles.min.js"></script>
         <script src="js/particle.js"></script>
         <script src="js/scrollax.min.js"></script>
+        <script src="js/cookie.js"></script>
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
         <!--<script src="js/google-map.js"></script>-->
         <script src="js/main.js"></script>
+        <script>
+            function register(){
+                var username = $('#username')[0].value;
+                var password=$('#password')[0].value;
+                var phonenumber=$('#phonenumber')[0].value;
+                var payload={
+                    username:username,
+                    password:password,
+                    phonenumber:phonenumber
+                }
+                var payload_json=JSON.stringify(payload);
+                xmlhttp = new XMLHttpRequest()
+                xmlhttp.open("POST","/NICU/register",false)
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                xmlhttp.send("payload="+encodeURIComponent(payload_json))
+                console.log("payload:"+payload_json)
+
+                var data = xmlhttp.responseText;
+                console.log("data:");
+                console.log(data);
+                if(data.indexOf("Fail")>=0){
+                    alert(data);
+                    return false;
+                }
+                else{
+                    alert("注册成功");
+                    window.location.href="./login.html"
+                    return true;
+                }
+            }
+        </script>
     </body>
 </html>
