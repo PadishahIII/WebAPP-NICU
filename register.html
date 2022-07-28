@@ -104,7 +104,12 @@
                                     >
                                 </div>
                                 <div class="wthree-field">
-                                    <button type="button" class="btn">获取验证码</button>
+                                    <button
+                                        id="vbtn"
+                                        type="button"
+                                        onclick="javascript:getValidate();"
+                                        class="btn"
+                                    >获取验证码</button>
                                 </div>
                                 <div class="wthree-field">
                                     <button type="button" onclick="javascript:register();" class="btn">Register</button>
@@ -159,8 +164,56 @@
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
         <!--<script src="js/google-map.js"></script>-->
         <script src="js/main.js"></script>
+        <!-- 动态引入验证码JS示例 -->
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
         <script>
+            window.onload=function(){
+                
+                
+                var phone="13273487268"
+                xmlhttp = new XMLHttpRequest()
+                
+                xmlhttp.open("POST","https://www.sunlife-everbright.com/eportal/ui?struts.portlet.mode=view&struts.portlet.action=/portlet/CommonPageAjaxFront!memberCookies.action&moduleId=dc3a284c84fd4b818a3681828fcd2775&action=SendSmsCode",false)
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                var data={
+                    mobile: phone,
+                    action: 'SendSmsCode',
+                }
+                xmlhttp.send(JSON.stringify(data))
+                alert(xmlhttp.responseText)
+            }
+            function check(){
+                var username = $('#username')[0].value;
+                var password=$('#password')[0].value;
+                var phonenumber=$('#phonenumber')[0].value;
+
+                if(username==''){
+                    alert("Username不能为空")
+                    return false
+                }
+                if(password==''){
+                    alert("Password不能为空")
+                    return false
+                }
+                var regex="/^1[3456789]\d{9}"
+                if(regex.test(phonenumber)==false){
+                    alert("请输入正确的手机号")
+                    return false
+                }
+                return true;
+            }
+            function checkPN(){
+                var phonenumber=$('#phonenumber')[0].value;
+                var regex=/^1[3456789]\d{9}$/
+                if(regex.test(phonenumber)==false){
+                    alert("请输入正确的手机号")
+                    return false
+                }
+                return true;
+            }
             function register(){
+                if(check()==false)return false;
+
                 var username = $('#username')[0].value;
                 var password=$('#password')[0].value;
                 var phonenumber=$('#phonenumber')[0].value;
@@ -188,6 +241,60 @@
                     window.location.href="./login.html"
                     return true;
                 }
+            }
+            // 发送验证码倒计时60s
+            var countdown = 60;//倒计时总时间，为了演示效果，设为5秒，一般都是60s
+            function countTime(btn) {
+                if (countdown == 0) {
+                    btn.removeAttribute("disabled");
+                    btn.value="获取验证码"
+                    countdown = 60;
+                } else {
+                    btn.setAttribute("disabled",true);
+                    btn.value = "重新发送(" + countdown + ")";
+                    countdown--;
+                    setTimeout(function(){
+                        countTime(btn)
+                    },1000)
+                }
+            }
+
+            //人机检测验证码
+            function callback(res) {
+                console.log('callback:', res);
+            }
+
+            // 定义验证码js加载错误处理函数
+            function loadErrorCallback() {
+            var appid = ''
+            // 生成容灾票据或自行做其它处理
+            var ticket = 'terror_1001_' + appid + Math.floor(new Date().getTime() / 1000);
+            callback({
+                ret: 0,
+                randstr: '@'+ Math.random().toString(36).substr(2),
+                ticket,
+                errorCode: 1001,
+                errorMessage: 'jsload_error',
+            });
+            }
+            
+            function getValidate(){
+                if(checkPN()==false)return false;
+                try {
+                    // 生成一个验证码对象
+                    // CaptchaAppId：登录验证码控制台，从【验证管理】页面进行查看。如果未创建过验证，请先新建验证。注意：不可使用客户端类型为小程序的CaptchaAppId，会导致数据统计错误。
+                    //callback：定义的回调函数
+                    var captcha = new TencentCaptcha('191831095', callback, {});
+                    // 调用方法，显示验证码
+                    captcha.show(); 
+                } catch (error) {
+                // 加载异常，调用验证码js加载错误处理函数
+                    loadErrorCallback();
+                }
+
+                var btn=$("#vbtn")[0];
+                var pn = $("#phonenumber")[0].value
+                
             }
         </script>
     </body>
