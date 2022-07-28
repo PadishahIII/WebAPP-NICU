@@ -61,11 +61,8 @@ public class Login extends HttpServlet {
             //System.out.println("key:" + request.getParameter("key"));
             //System.out.println("iv:" + request.getParameter("iv"));
             //System.out.println("mac:" + request.getParameter("mac"));
-            String payload_json = mp.decode(request.getParameter("payload"), request.getParameter("key"),
-                    request.getParameter("iv"), request.getParameter("mac"));
+            String payload_json = request.getParameter("payload");
             //System.out.println(payload_json);
-            String reply_json = mp.reply(payload_json);
-            //System.out.println("reply:" + reply);
             JSONObject payload = JSONObject.parseObject(payload_json);
             String username = payload.getString("username");
             String password = payload.getString("password");
@@ -73,7 +70,7 @@ public class Login extends HttpServlet {
             String password_mac_str = bytes2HexString(password_mac);
             //查询数据库
             try {
-                String sql = "SELECT password from admininfo where username='" + username + "';";
+                String sql = "SELECT password from users where username='" + username + "';";
                 //java.sql.PreparedStatement pstmt = conn.prepareStatement(sql);
                 //pstmt.setString(1, username);
                 ResultSet res = stmt.executeQuery(sql);
@@ -84,7 +81,7 @@ public class Login extends HttpServlet {
                     if (password_mac_str.equals(password_db)) {
                         //成功
                         //out.println("Login Success!\nWelcome " + username + "!");
-                        out.println(reply_json);
+                        out.println("success");
                         Success = true;
                         break;
                     }

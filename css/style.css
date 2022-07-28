@@ -9207,6 +9207,10 @@ width:100%;
   width:574px;
   height: 354px;
 }
+.image-full{
+  width:1000px;
+  height:550px;
+}
 .tm-section {
   max-width: 100%;
   width: 1200px;
