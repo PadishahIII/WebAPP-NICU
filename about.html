@@ -34,13 +34,11 @@
                 <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                     <!-- sidebar -->
                     <div class="wrapper d-flex align-items-stretch">
-                        <nav id="tmMainNav" style="background: transparent;">
-                            <!-- 原nav id="sidebar" -->
+                        <nav id="sidebar" class="tm-main-nav" style="background:transparent;">
                             <div class="custom-menu">
                                 <button type="button" id="sidebarCollapse" class="btn btn-primary"></button>
                             </div>
-                            <div class="img bg-wrap text-center py-4">
-                                <!-- style="background: transparent;" -->
+                            <div class="img bg-wrap text-center py-4" style="background:transparent;">
                                 <div class="user-logo">
                                     <div class="img" style="background-image: url(images/logo.jpg);"></div>
                                     <h3>User</h3>
@@ -48,13 +46,23 @@
                             </div>
                             <ul class="list-unstyled components mb-5">
                                 <li class="active">
-                                    <a href="#" id="tmNavLink1" data-page="section-1">
+                                    <a
+                                        href="#"
+                                        id="tmNavLink1"
+                                        class="active"
+                                        data-page="#tm-section-1"
+                                    >
                                         <span class="fa fa-home mr-3"></span>
-                                        病房环境监测
+                                        Home
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a
+                                        href="#"
+                                        id="tmNavLink1"
+                                        class=""
+                                        data-page="#tm-section-2"
+                                    >
                                         <span class="fa fa-download mr-3 notif">
                                             <small class="d-flex align-items-center justify-content-center">5</small>
                                         </span>
@@ -94,16 +102,16 @@
                             </ul>
                         </nav>
                         <!-- Page Content  -->
-                        <section id="section-1" class="p-4 p-md-5 pt-5">
-                            <h2 class="mb-4">Sidebar #09</h2>
+                        <section id="tm-section-1" class="p-4 p-md-5 pt-5 tm-section">
+                            <h2 class="mb-4">aaaaaaaaaaaaaa</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </section>
-                        <section id="section-2" class="p-4 p-md-5 pt-5">
-                            <h2 class="mb-4">Sidebar #09</h2>
+                        <section id="tm-section-2" class="p-4 p-md-5 pt-5 tm-section">
+                            <h2 class="mb-4">bbbbbbbbbbbbbbbbb</h2>
                         </section>
-                        <section id="section-3" class="p-4 p-md-5 pt-5">
+                        <!--<section id="section-3" class="p-4 p-md-5 pt-5">
                             <h2 class="mb-4">Sidebar #09</h2>
-                        </section>
+                        </section>-->
                         <!--<div id="content" class="p-4 p-md-5 pt-5">
                             <h2 class="mb-4">Sidebar #09</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -141,6 +149,54 @@
                 />
             </svg>
         </div>-->
+        <script>
+            // Setup Nav
+            function setupNav() {
+                // Add Event Listener to each Nav item
+                $(".tm-main-nav a").click(function(e){
+                    e.preventDefault();
+                    
+                    var currentNavItem = $(this);
+                    console.log("currentNav:")
+                    console.log(currentNavItem);
+                    changePage(currentNavItem);
+                });	    
+            }
+
+            function changePage(currentNavItem) {
+                // Update Nav items
+                $(".tm-main-nav a").removeClass("active");
+                currentNavItem.addClass("active");
+
+                $(".tm-section").hide();
+                //$(currentPageID).hide();
+
+                // Show current page
+                currentPageID = currentNavItem.data("page");
+                $(currentPageID).fadeIn(1000);
+
+                // Change background image
+                //var bgImg = currentNavItem.data("bgImg");
+                //$.backstretch("img/" + bgImg);		    	
+            }
+
+            // Setup Nav Toggle Button
+            function setupNavToggle() {
+
+                $("#tmMainNavToggle").on("click", function(){
+                    $(".sidebar").toggleClass("show");
+                });
+            }
+            $(window).on("load", function(){
+                var allPages = $(".tm-section");
+                // Hide all pages
+		      	allPages.hide();
+                console.log("allPageshide");
+                $("#tm-section-1").fadeIn();
+                setupNav();
+			    //setupNavToggle();
+            });
+        </script>
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-migrate-3.0.1.min.js"></script>
         <script src="js/popper.min.js"></script>
