@@ -111,6 +111,7 @@
                                         class="btn"
                                     >获取验证码</button>
                                 </div>
+                                <input id="validateNum" type="hidden" value=""></input>
                                 <div class="wthree-field">
                                     <button type="button" onclick="javascript:register();" class="btn">Register</button>
                                 </div>
@@ -167,21 +168,21 @@
         <!-- 动态引入验证码JS示例 -->
         <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
         <script>
-            window.onload=function(){
-                
-                
-                var phone="13273487268"
-                xmlhttp = new XMLHttpRequest()
-                
-                xmlhttp.open("POST","https://www.sunlife-everbright.com/eportal/ui?struts.portlet.mode=view&struts.portlet.action=/portlet/CommonPageAjaxFront!memberCookies.action&moduleId=dc3a284c84fd4b818a3681828fcd2775&action=SendSmsCode",false)
-                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
-                var data={
-                    mobile: phone,
-                    action: 'SendSmsCode',
-                }
-                xmlhttp.send(JSON.stringify(data))
-                alert(xmlhttp.responseText)
-            }
+            //window.onload=function(){
+            //    
+            //    
+            //    var phone="13273487268"
+            //    xmlhttp = new XMLHttpRequest()
+            //    
+            //    xmlhttp.open("POST","https://www.sunlife-everbright.com/eportal/ui?struts.portlet.mode=view&struts.portlet.action=/portlet/CommonPageAjaxFront!memberCookies.action&moduleId=dc3a284c84fd4b818a3681828fcd2775&action=SendSmsCode",false)
+            //    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            //    var data={
+            //        mobile: phone,
+            //        action: 'SendSmsCode',
+            //    }
+            //    xmlhttp.send(JSON.stringify(data))
+            //    alert(xmlhttp.responseText)
+            //}
             function check(){
                 var username = $('#username')[0].value;
                 var password=$('#password')[0].value;
@@ -195,7 +196,7 @@
                     alert("Password不能为空")
                     return false
                 }
-                var regex="/^1[3456789]\d{9}"
+                var regex=/^1[3456789]\d{9}$/
                 if(regex.test(phonenumber)==false){
                     alert("请输入正确的手机号")
                     return false
@@ -294,7 +295,22 @@
 
                 var btn=$("#vbtn")[0];
                 var pn = $("#phonenumber")[0].value
-                
+
+                var data={
+                    phonenumber:pn
+                }
+                var payload_json=JSON.stringify(data)
+
+                xmlhttp = new XMLHttpRequest()
+                xmlhttp.open("POST","/NICU/validate",false)
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                xmlhttp.send("payload="+encodeURIComponent(payload_json))
+
+                var res = xmlhttp.responseText;
+                if(res.length>0 && res.indexOf("Fail")<0){
+                    $('#validateNum')[0].value=res;
+                }
+                countTime($("#validation"));
             }
         </script>
     </body>
