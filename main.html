@@ -50,7 +50,7 @@
                             <div class="img bg-wrap text-center py-4" style="background:transparent;">
                                 <div class="user-logo">
                                     <div class="img" style="background-image: url(images/logo.jpg);"></div>
-                                    <h3>User</h3>
+                                    <h3 id="UsernameHeader">User</h3>
                                 </div>
                             </div>
                             <ul class="list-unstyled components mb-5">
@@ -104,6 +104,7 @@
                                         id="tmNavLink2"
                                         class=""
                                         data-page="#tm-section-2"
+                                        onclick="javascript:signOut();"
                                     >
                                         <span class="fa fa-sign-out mr-3 notif"></span>
                                         Sign Out
@@ -424,6 +425,16 @@
                 $("#tm-section-1").fadeIn();
                 setupNav();
 			    //setupNavToggle();
+                /**/
+                var username=getCookieValue("username")
+                if(username==""){
+                    let atag = document.createElement('a')
+                    let href  = "./login.html"
+                    atag.href = href
+                    atag.click()
+                }
+                $("#UsernameHeader")[0].innerHTML=username;
+
             });
         </script>
         <script src="js/jquery.min.js"></script>
@@ -442,8 +453,18 @@
         <script src="js/particles.min.js"></script>
         <script src="js/particle.js"></script>
         <script src="js/scrollax.min.js"></script>
+        <script src="js/cookie.js"></script>
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
         <!--<script src="js/google-map.js"></script>TODO:-->
         <script src="js/main.js"></script>
+        <script>
+            function signOut(){
+                deleteCookie("username","/");
+                let atag = document.createElement('a')
+                let href  = "./login.html"
+                atag.href = href
+                atag.click()
+            }
+        </script>
     </body>
 </html>
