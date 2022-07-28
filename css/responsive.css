@@ -1,0 +1,66 @@
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	
+}
+@media (max-width: 767px) {
+	.cd-pricing-switcher label{
+		width: 120px;
+	}
+	.cd-pricing-switcher .cd-switch{
+		width: 120px;
+	}
+	.cd-pricing-switcher input[type="radio"]:checked + label + .cd-switch, .cd-pricing-switcher input[type="radio"]:checked + label:nth-of-type(n) + .cd-switch {
+		-webkit-transform: translateX(120px);
+		-moz-transform: translateX(120px);
+		-ms-transform: translateX(120px);
+		-o-transform: translateX(120px);
+		transform: translateX(120px);
+	}
+	.cd-pricing-header h2{
+		font-size: 14px;
+	}
+	.price-icon{
+		display: none;
+	}
+	.cd-currency, .cd-value{
+		font-size: 14px;
+	}
+	.cd-duration{
+		font-size: 12px;
+	}
+	.cd-pricing-features li{
+		line-height: 27px;
+	}
+}
+@media only screen and (min-width: 280px) and (max-width: 575px) {
+	.cd-pricing-switcher label{
+		width: 120px;
+	}
+	.cd-pricing-switcher .cd-switch{
+		width: 120px;
+	}
+	.cd-pricing-switcher input[type="radio"]:checked + label + .cd-switch, .cd-pricing-switcher input[type="radio"]:checked + label:nth-of-type(n) + .cd-switch {
+		-webkit-transform: translateX(120px);
+		-moz-transform: translateX(120px);
+		-ms-transform: translateX(120px);
+		-o-transform: translateX(120px);
+		transform: translateX(120px);
+	}
+	.cd-pricing-header h2{
+		font-size: 14px;
+	}
+	.price-icon{
+		display: none;
+	}
+	.cd-currency, .cd-value{
+		font-size: 14px;
+	}
+	.cd-duration{
+		font-size: 12px;
+	}
+	.cd-pricing-features li{
+		line-height: 27px;
+	}
+}
