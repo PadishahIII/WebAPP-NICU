@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class Login extends HttpServlet {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/education_admins";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/nicu";
     static final String USER = "root";
     static final String PASS = "914075";
     private Connection conn = null;
@@ -29,9 +29,6 @@ public class Login extends HttpServlet {
 
     public Login() throws Exception {
         init_mysql();
-        mp = new MyProtocol();
-        mp.loadPrivateKeyFromFile("D:\\Tomcat\\webapps\\DBManager\\src\\pkcs8_private_der.key");
-        mp.loadPublicKeyFromFile("D:\\Tomcat\\webapps\\DBManager\\src\\rsa_public_key.der");
     }
 
     protected void init_mysql() {
@@ -47,14 +44,11 @@ public class Login extends HttpServlet {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServerException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<head><title>bbbbb</title></head>");
-        out.println("</html>");
-    }
+    //protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    //        throws ServerException, IOException {
+    //    response.setContentType("text/html;charset=UTF-8");
+    //    PrintWriter out = response.getWriter();
+    //}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
