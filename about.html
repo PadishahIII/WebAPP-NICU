@@ -16,11 +16,6 @@
         <link rel="stylesheet" href="css/jquery.timepicker.css">
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
-        <link rel="stylesheet" href="css/style.css">
-        <!-- sidebar -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style1.css">
         <!-- Fontawesome CSS -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
         <!-- Reset CSS -->
@@ -29,6 +24,11 @@
         <link rel="stylesheet" href="css/style2.css">
         <!-- Responsive  CSS -->
         <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- sidebar -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style1.css">
     </head>
     <body>
         <div class="hero-wrap js-fullheight">
@@ -111,331 +111,80 @@
                         </nav>
                         <!-- Page Content  -->
                         <section id="tm-section-1" class="p-4 p-md-5 pt-5 tm-section">
-                            <h2 class="mb-4">病房环境监测</h2>
-                            <div class="col-lg-12">
-                                <div class="cd-pricing-container">
-                                    <div class="cd-pricing-switcher">
-                                        <p class="fieldset">
-                                            <input
-                                                type="radio"
-                                                name="duration-1"
-                                                value="monthly"
-                                                id="monthly-1"
-                                                checked
-                                            >
-                                            <label for="monthly-1">Monthly</label>
-                                            <input
-                                                type="radio"
-                                                name="duration-1"
-                                                value="yearly"
-                                                id="yearly-1"
-                                            >
-                                            <label for="yearly-1">Yearly</label>
-                                            <span class="cd-switch"></span>
-                                        </p>
-                                    </div>
-                                    <!-- .cd-pricing-switcher -->
-                                    <ul class="cd-pricing-list cd-bounce-invert">
-                                        <li>
-                                            <ul class="cd-pricing-wrapper">
-                                                <li data-type="monthly" class="is-visible">
-                                                    <header class="cd-pricing-header">
-                                                        <h2>Basic</h2>
-                                                        <div class="price-icon">
-                                                            <i class="fas fa-suitcase"></i>
-                                                        </div>
-                                                        <div class="cd-price">
-                                                            <span class="cd-currency">$</span>
-                                                            <span class="cd-value">30</span>
-                                                            <span class="cd-duration">mo</span>
-                                                        </div>
-                                                    </header>
-                                                    <!-- .cd-pricing-header -->
-                                                    <div class="cd-pricing-body">
-                                                        <ul class="cd-pricing-features">
-                                                            <li>
-                                                                <em>256MB</em>
-                                                                Memory
-                                                            </li>
-                                                            <li>
-                                                                <em>1</em>
-                                                                User
-                                                            </li>
-                                                            <li>
-                                                                <em>1</em>
-                                                                Website
-                                                            </li>
-                                                            <li>
-                                                                <em>1</em>
-                                                                Domain
-                                                            </li>
-                                                            <li>
-                                                                <em>Unlimited</em>
-                                                                Bandwidth
-                                                            </li>
-                                                            <li>
-                                                                <em>24/7</em>
-                                                                Support
-                                                            </li>
-                                                        </ul>
+                            <h2 class="my-header">病房环境监测</h2>
+                            <div class="cd-pricing-container">
+                                <!-- .cd-pricing-switcher -->
+                                <ul class="cd-pricing-list cd-bounce-invert">
+                                    <li>
+                                        <ul class="cd-pricing-wrapper">
+                                            <li data-type="monthly" class="is-visible">
+                                                <header class="cd-pricing-header">
+                                                    <h2>温度</h2>
+                                                    <div class="price-icon">
+                                                        <i class="fas fa-suitcase"></i>
                                                     </div>
-                                                    <!-- .cd-pricing-body -->
-                                                    <footer class="cd-pricing-footer">
-                                                        <a class="cd-select" href="#">PURCHASE NOW</a>
-                                                    </footer>
-                                                    <!-- .cd-pricing-footer -->
-                                                </li>
-                                                <li data-type="yearly" class="is-hidden">
-                                                    <header class="cd-pricing-header">
-                                                        <h2>Basic</h2>
-                                                        <div class="price-icon">
-                                                            <i class="fas fa-suitcase"></i>
-                                                        </div>
-                                                        <div class="cd-price">
-                                                            <span class="cd-currency">$</span>
-                                                            <span class="cd-value">320</span>
-                                                            <span class="cd-duration">yr</span>
-                                                        </div>
-                                                    </header>
-                                                    <!-- .cd-pricing-header -->
-                                                    <div class="cd-pricing-body">
-                                                        <ul class="cd-pricing-features">
-                                                            <li>
-                                                                <em>256MB</em>
-                                                                Memory
-                                                            </li>
-                                                            <li>
-                                                                <em>1</em>
-                                                                User
-                                                            </li>
-                                                            <li>
-                                                                <em>1</em>
-                                                                Website
-                                                            </li>
-                                                            <li>
-                                                                <em>1</em>
-                                                                Domain
-                                                            </li>
-                                                            <li>
-                                                                <em>Unlimited</em>
-                                                                Bandwidth
-                                                            </li>
-                                                            <li>
-                                                                <em>24/7</em>
-                                                                Support
-                                                            </li>
-                                                        </ul>
+                                                    <div class="cd-price">
+                                                        <span class="cd-value">30</span>
+                                                        <span class="cd-duration">℃</span>
                                                     </div>
-                                                    <!-- .cd-pricing-body -->
-                                                    <footer class="cd-pricing-footer">
-                                                        <a class="cd-select" href="#">PURCHASE NOW</a>
-                                                    </footer>
-                                                    <!-- .cd-pricing-footer -->
-                                                </li>
-                                            </ul>
-                                            <!-- .cd-pricing-wrapper -->
-                                        </li>
-                                        <li class="cd-popular">
-                                            <ul class="cd-pricing-wrapper">
-                                                <li data-type="monthly" class="is-visible">
-                                                    <header class="cd-pricing-header">
-                                                        <h2>Popular</h2>
-                                                        <div class="price-icon">
-                                                            <i class="fas fa-fire"></i>
-                                                        </div>
-                                                        <div class="cd-price">
-                                                            <span class="cd-currency">$</span>
-                                                            <span class="cd-value">60</span>
-                                                            <span class="cd-duration">mo</span>
-                                                        </div>
-                                                    </header>
-                                                    <!-- .cd-pricing-header -->
-                                                    <div class="cd-pricing-body">
-                                                        <ul class="cd-pricing-features">
-                                                            <li>
-                                                                <em>512MB</em>
-                                                                Memory
-                                                            </li>
-                                                            <li>
-                                                                <em>3</em>
-                                                                Users
-                                                            </li>
-                                                            <li>
-                                                                <em>5</em>
-                                                                Websites
-                                                            </li>
-                                                            <li>
-                                                                <em>7</em>
-                                                                Domains
-                                                            </li>
-                                                            <li>
-                                                                <em>Unlimited</em>
-                                                                Bandwidth
-                                                            </li>
-                                                            <li>
-                                                                <em>24/7</em>
-                                                                Support
-                                                            </li>
-                                                        </ul>
+                                                </header>
+                                            </li>
+                                        </ul>
+                                        <!-- .cd-pricing-wrapper -->
+                                    </li>
+                                    <li class="cd-popular">
+                                        <ul class="cd-pricing-wrapper">
+                                            <li data-type="monthly" class="is-visible">
+                                                <header class="cd-pricing-header">
+                                                    <h2>乙醇浓度</h2>
+                                                    <div class="price-icon">
+                                                        <i class="fas fa-fire"></i>
                                                     </div>
-                                                    <!-- .cd-pricing-body -->
-                                                    <footer class="cd-pricing-footer">
-                                                        <a class="cd-select" href="#">PURCHASE NOW</a>
-                                                    </footer>
-                                                    <!-- .cd-pricing-footer -->
-                                                </li>
-                                                <li data-type="yearly" class="is-hidden">
-                                                    <header class="cd-pricing-header">
-                                                        <h2>Popular</h2>
-                                                        <div class="price-icon">
-                                                            <i class="fas fa-fire"></i>
-                                                        </div>
-                                                        <div class="cd-price">
-                                                            <span class="cd-currency">$</span>
-                                                            <span class="cd-value">630</span>
-                                                            <span class="cd-duration">yr</span>
-                                                        </div>
-                                                    </header>
-                                                    <!-- .cd-pricing-header -->
-                                                    <div class="cd-pricing-body">
-                                                        <ul class="cd-pricing-features">
-                                                            <li>
-                                                                <em>512MB</em>
-                                                                Memory
-                                                            </li>
-                                                            <li>
-                                                                <em>3</em>
-                                                                Users
-                                                            </li>
-                                                            <li>
-                                                                <em>5</em>
-                                                                Websites
-                                                            </li>
-                                                            <li>
-                                                                <em>7</em>
-                                                                Domains
-                                                            </li>
-                                                            <li>
-                                                                <em>Unlimited</em>
-                                                                Bandwidth
-                                                            </li>
-                                                            <li>
-                                                                <em>24/7</em>
-                                                                Support
-                                                            </li>
-                                                        </ul>
+                                                    <div class="cd-price">
+                                                        <span class="cd-value">60</span>
+                                                        <span class="cd-duration">%</span>
                                                     </div>
-                                                    <!-- .cd-pricing-body -->
-                                                    <footer class="cd-pricing-footer">
-                                                        <a class="cd-select" href="#">PURCHASE NOW</a>
-                                                    </footer>
-                                                    <!-- .cd-pricing-footer -->
-                                                </li>
-                                            </ul>
-                                            <!-- .cd-pricing-wrapper -->
-                                        </li>
-                                        <li>
-                                            <ul class="cd-pricing-wrapper">
-                                                <li data-type="monthly" class="is-visible">
-                                                    <header class="cd-pricing-header">
-                                                        <h2>Premier</h2>
-                                                        <div class="price-icon">
-                                                            <i class="fas fa-cogs"></i>
-                                                        </div>
-                                                        <div class="cd-price">
-                                                            <span class="cd-currency">$</span>
-                                                            <span class="cd-value">90</span>
-                                                            <span class="cd-duration">mo</span>
-                                                        </div>
-                                                    </header>
-                                                    <!-- .cd-pricing-header -->
-                                                    <div class="cd-pricing-body">
-                                                        <ul class="cd-pricing-features">
-                                                            <li>
-                                                                <em>1024MB</em>
-                                                                Memory
-                                                            </li>
-                                                            <li>
-                                                                <em>5</em>
-                                                                Users
-                                                            </li>
-                                                            <li>
-                                                                <em>10</em>
-                                                                Websites
-                                                            </li>
-                                                            <li>
-                                                                <em>10</em>
-                                                                Domains
-                                                            </li>
-                                                            <li>
-                                                                <em>Unlimited</em>
-                                                                Bandwidth
-                                                            </li>
-                                                            <li>
-                                                                <em>24/7</em>
-                                                                Support
-                                                            </li>
-                                                        </ul>
+                                                </header>
+                                            </li>
+                                        </ul>
+                                        <!-- .cd-pricing-wrapper -->
+                                    </li>
+                                    <li>
+                                        <ul class="cd-pricing-wrapper">
+                                            <li data-type="monthly" class="is-visible">
+                                                <header class="cd-pricing-header">
+                                                    <h2>湿度</h2>
+                                                    <div class="price-icon">
+                                                        <i class="fas fa-suitcase"></i>
                                                     </div>
-                                                    <!-- .cd-pricing-body -->
-                                                    <footer class="cd-pricing-footer">
-                                                        <a class="cd-select" href="#">PURCHASE NOW</a>
-                                                    </footer>
-                                                    <!-- .cd-pricing-footer -->
-                                                </li>
-                                                <li data-type="yearly" class="is-hidden">
-                                                    <header class="cd-pricing-header">
-                                                        <h2>Premier</h2>
-                                                        <div class="price-icon">
-                                                            <i class="fas fa-cogs"></i>
-                                                        </div>
-                                                        <div class="cd-price">
-                                                            <span class="cd-currency">$</span>
-                                                            <span class="cd-value">950</span>
-                                                            <span class="cd-duration">yr</span>
-                                                        </div>
-                                                    </header>
-                                                    <!-- .cd-pricing-header -->
-                                                    <div class="cd-pricing-body">
-                                                        <ul class="cd-pricing-features">
-                                                            <li>
-                                                                <em>1024MB</em>
-                                                                Memory
-                                                            </li>
-                                                            <li>
-                                                                <em>5</em>
-                                                                Users
-                                                            </li>
-                                                            <li>
-                                                                <em>10</em>
-                                                                Websites
-                                                            </li>
-                                                            <li>
-                                                                <em>10</em>
-                                                                Domains
-                                                            </li>
-                                                            <li>
-                                                                <em>Unlimited</em>
-                                                                Bandwidth
-                                                            </li>
-                                                            <li>
-                                                                <em>24/7</em>
-                                                                Support
-                                                            </li>
-                                                        </ul>
+                                                    <div class="cd-price">
+                                                        <span class="cd-value">320</span>
+                                                        <span class="cd-duration">%</span>
                                                     </div>
-                                                    <!-- .cd-pricing-body -->
-                                                    <footer class="cd-pricing-footer">
-                                                        <a class="cd-select" href="#">PURCHASE NOW</a>
-                                                    </footer>
-                                                    <!-- .cd-pricing-footer -->
-                                                </li>
-                                            </ul>
-                                            <!-- .cd-pricing-wrapper -->
-                                        </li>
-                                    </ul>
-                                    <!-- .cd-pricing-list -->
-                                </div>
+                                                </header>
+                                            </li>
+                                        </ul>
+                                        <!-- .cd-pricing-wrapper -->
+                                    </li>
+                                    <li>
+                                        <ul class="cd-pricing-wrapper">
+                                            <li data-type="monthly" class="is-visible">
+                                                <header class="cd-pricing-header">
+                                                    <h2>H2浓度</h2>
+                                                    <div class="price-icon">
+                                                        <i class="fas fa-fire"></i>
+                                                    </div>
+                                                    <div class="cd-price">
+                                                        <span class="cd-value">630</span>
+                                                        <span class="cd-duration">%</span>
+                                                    </div>
+                                                </header>
+                                            </li>
+                                        </ul>
+                                        <!-- .cd-pricing-wrapper -->
+                                    </li>
+                                </ul>
+                                <!-- .cd-pricing-list -->
                                 <!-- .cd-pricing-container -->
                             </div>
                         </section>
