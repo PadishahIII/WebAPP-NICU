@@ -293,11 +293,16 @@ h6 {
   opacity: 1;
 }
 .cd-pricing-wrapper > li {
-  background-color: #FFFFFF;
+  /*background: transparent;*/
+  background-color: #fafafa;
+  opacity: 0.8;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   /* Firefox bug - 3D CSS transform, jagged edges */
   outline: 1px solid transparent;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .cd-pricing-wrapper > li::after {
   /* subtle gradient layer on the right - to indicate it's possible to scroll */
@@ -422,7 +427,8 @@ h6 {
   padding: 1em;
   pointer-events: none;
   background-color: #58c9e9;
-  color: #FFFFFF;
+  /*color: #ffffff;*/
+  background: transparent;
 }
 .cd-pricing-header h2 {  
   font-weight: 700;

@@ -9118,9 +9118,26 @@ width:100%;
   text-shadow: 2px 2px #f4a3c8;
   font-size:33px;
 }
+.my-header2 {
+  padding: 0.7rem 2rem;
+  margin-bottom: 0;
+  border:5px dashed  #EA4C89;
+  border-radius: 10px;
+  /*border-bottom:  1px solid rgba(0, 0, 0, 0.125); */
+  text-align: center;
+  text-indent: 40px;/*缩进*/
+  color:white;
+  font-family: "Hiragino Sans GB";
+  opacity: 1.6;
+  text-shadow: 2px 2px #f4a3c8;
+  font-size:33px;
+}
+.my-h2{
+  color:#999;
+}
 .tm-section {
-  /*max-width: 100%;
-  width: auto;*/
+  max-width: 100%;
+  width: 1200px;
   background: transparent;    
 }
 a.active{
@@ -9133,4 +9150,14 @@ a.active{
 .tm-main-nav{
   /*margin: 20px 0 35px 0;*/
   padding-right: 10px;
+}
+/* 源自style2.css */
+.cd-value{
+  color:#3ad2d1;
+}
+.price-icon{
+  color:#3ad2d1;
+}
+.cd-duration{
+  color:#3ad2d1;
 }
